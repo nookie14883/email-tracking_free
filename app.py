@@ -4,6 +4,7 @@ from datetime import datetime
 import logging
 import sqlite3
 from functools import wraps
+from database import init_db
 
 app = Flask(__name__)
 
@@ -15,6 +16,8 @@ os.makedirs(LOG_FOLDER, exist_ok=True)
 
 # Инициализация логирования
 logging.basicConfig(filename='app.log', level=logging.DEBUG)
+
+init_db()
 
 def check_auth(username, password):
     return username == 'lime_checker' and password == 'ldw12fggAgfgh3gG[[vRF'
